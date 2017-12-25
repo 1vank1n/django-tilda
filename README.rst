@@ -1,7 +1,7 @@
 Django Tilda
 ============
 
-`На русском <README.ru.rst>`
+`На русском <README.ru.rst>`_
 
 **Warning!** Before start you have to register in `tilda.cc`_ and have
 “Tilda Business” account for use Tilda API.

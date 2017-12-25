@@ -1,7 +1,7 @@
 Django Tilda
 ============
 
-`English readme <README.rst>`
+`English readme <README.rst>`_
 
 **Внимание!** Перед тем как приступить к интеграции с `tilda.cc`_ убедитесь, что у Вас “Tilda Business” тариф. Только на нём доступно Tilda API.
 

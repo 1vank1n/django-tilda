@@ -1,0 +1,11 @@
+*.log
+*.pot
+*.pyc
+__pycache__/
+.DS_Store
+.env
+dist/
+media/
+django_tilda.egg-info/
+local_settings.py
+db.sqlite3

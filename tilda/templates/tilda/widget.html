@@ -1,0 +1,87 @@
+{% load i18n %}
+
+
+{% if is_need_config %}
+	<div class="readonly">
+		{% trans "Insert TILDA_PUBLIC_KEY, TILDA_SECRET_KEY, TILDA_PROJECTID in settings.py" %}
+	</div>
+{% else %}
+	<div>
+		<select type="text" name="{{ name }}" id="{{ attrs.id }}"/>
+			<option value="">---</option>
+			{% for q in queryset %}
+				<option value="{{ q.id }}" {% if value %}selected{% endif %}>{{ q.title }}</option>
+			{% endfor %}
+		</select>
+
+		<a style="margin-left:10px;" data-js="tildaPagesFetch" href="javascript:void(0);">{% trans "Fetch list of pages from tilda.cc" %}</a>
+	</div>
+
+	{% if value %}
+		<div>
+			{% trans "Last sync" %}: {% if obj.synchronized %}{{ obj.synchronized|date:"d.m.Y H:i:s" }}{% else %}---{% endif %}. <a data-js="tildaSync" href="javascript:void(0);">{% trans "Sync" %}</a>
+		</div>
+	{% endif %}
+{% endif %}
+
+
+<script>
+	function ready(fn) {
+		if (document.attachEvent ? document.readyState === 'complete' : document.readyState !== 'loading') {
+			fn();
+		} else {
+			document.addEventListener('DOMContentLoaded', fn);
+		}
+	}
+
+	ready(function() {
+		var el = document.getElementById('change_id_tilda_content');
+		el.parentNode.removeChild(el);
+
+		{% if obj %}
+			document.querySelector('[data-js="tildaSync"]').addEventListener('click', function(e) {
+				e.preventDefault();
+				e.target.innerText = '{% trans "Syncing. Wait..." %}'
+
+				var request = new XMLHttpRequest();
+				request.open('GET', '/admin/tilda/tildapage/{{ obj.id }}/actions/synchronize_page/', true);
+
+				request.onload = function() {
+					if (request.status >= 200 && request.status < 400) {
+						location.reload();
+					} else {
+						alert('{% trans "Error: Sync from tilda.cc give error." %}')
+					}
+				};
+
+				request.onerror = function() {
+					alert('{% trans "Error: Sync from tilda.cc give error." %}')
+				};
+
+				request.send();
+			});
+		{% endif %}
+
+		document.querySelector('[data-js="tildaPagesFetch"]').addEventListener('click', function(e) {
+			e.preventDefault();
+			e.target.innerText = '{% trans "Downloading. Wait..." %}'
+
+			var request = new XMLHttpRequest();
+			request.open('GET', '/admin/tilda/tildapage/actions/fetch_pages/', true);
+
+			request.onload = function() {
+				if (request.status >= 200 && request.status < 400) {
+					location.reload();
+				} else {
+					alert('{% trans "Error: Fetch pages from tilda.cc give error." %}')
+				}
+			};
+
+			request.onerror = function() {
+				alert('{% trans "Error: Fetch pages from tilda.cc give error." %}')
+			};
+
+			request.send();
+		});
+	});
+</script>

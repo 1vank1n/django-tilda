@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+	<ul>
+		{% for o in page_list %}
+			<li>
+				<a href="{{ o.get_absolute_url }}">{{ o.title }}</a>
+			</li>
+		{% empty %}
+			<li>
+				No pages
+			</li>
+		{% endfor %}
+	</ul>
+{% endblock content %}

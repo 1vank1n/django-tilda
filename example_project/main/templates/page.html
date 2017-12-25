@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+{% block head %}
+	{% for css in object.tilda_content.get_css_list %}
+		<link rel="stylesheet" href="{{ css }}">
+	{% endfor %}
+{% endblock head %}
+
+
+{% block content %}
+	<h1>{{ object.tilda_content.html|safe }}</h1>
+{% endblock content %}
+
+
+{% block footer_js %}
+	{% for js in object.tilda_content.get_js_list %}
+		<script src="{{ js }}"></script>
+	{% endfor %}
+{% endblock footer_js %}

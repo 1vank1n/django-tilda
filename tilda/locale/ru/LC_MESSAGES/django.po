@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-25 18:57+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: admin.py:33
+msgid "Pages successfuly fetched from Tilda"
+msgstr "Страницы успешно подгружены с Tila"
+
+#: admin.py:39
+msgid "Nothing fetched. Perharps wrong settings"
+msgstr "Ничего не загрузилось. Проверьте настройки в settings"
+
+#: admin.py:41
+msgid "Fetch pages"
+msgstr "Загрузить страницы"
+
+#: admin.py:48
+msgid "Page «{}» successfuly synced from Tilda"
+msgstr "Страница «{}» успешно загружена с Tilda"
+
+#: admin.py:54
+msgid "Something wrong..."
+msgstr "Что-то пошло не так..."
+
+#: admin.py:56
+msgid "Synchronize"
+msgstr "Синхронизировать"
+
+#: models.py:10
+msgid "Page id"
+msgstr "ID страницы"
+
+#: models.py:17
+msgid "Title"
+msgstr "Заголовок"
+
+#: models.py:22
+msgid "HTML"
+msgstr ""
+
+#: models.py:27
+msgid "Images"
+msgstr "Изображения"
+
+#: models.py:32
+msgid "CSS"
+msgstr ""
+
+#: models.py:37
+msgid "JS"
+msgstr ""
+
+#: models.py:42
+msgid "Synchronized time"
+msgstr "Время синхронизиации"
+
+#: models.py:48
+msgid "Created"
+msgstr "Дата создания"
+
+#: models.py:54
+msgid "page"
+msgstr "страница"
+
+#: models.py:55
+msgid "Tilda Pages"
+msgstr "Tilda Страницы"
+
+#: templates/tilda/widget.html:6
+msgid ""
+"Insert TILDA_PUBLIC_KEY, TILDA_SECRET_KEY, TILDA_PROJECTID in settings.py"
+msgstr "Добавьте TILDA_PUBLIC_KEY, TILDA_SECRET_KEY, TILDA_PROJECTID в settings.py"
+
+#: templates/tilda/widget.html:17
+msgid "Fetch list of pages from tilda.cc"
+msgstr "Подгрузить список страниц с tilda.cc"
+
+#: templates/tilda/widget.html:22
+msgid "Last sync"
+msgstr "Последняя синхронизация"
+
+#: templates/tilda/widget.html:22
+msgid "Sync"
+msgstr "Синхронизировать"
+
+#: templates/tilda/widget.html:44
+msgid "Syncing. Wait..."
+msgstr "Синхронизируем. Подождите..."
+
+#: templates/tilda/widget.html:53 templates/tilda/widget.html:58
+msgid "Error: Sync from tilda.cc give error."
+msgstr "Ошибка: Синхронизация с tilda.cc выдала ошибку"
+
+#: templates/tilda/widget.html:67
+msgid "Downloading. Wait..."
+msgstr "Загружаем. Подождите..."
+
+#: templates/tilda/widget.html:76 templates/tilda/widget.html:81
+msgid "Error: Fetch pages from tilda.cc give error."
+msgstr "Ошибка: Загрузка списка страниц с tilda.cc выдало ошибку."

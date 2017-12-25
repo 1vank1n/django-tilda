@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='django-tilda',
-    version='1.0.2',
+    version='1.0.3',
     author='Ivan Lukyanets',
     author_email='lukyanets.ivan@gmail.com',
     url='https://github.com/1vank1n/django-tilda',

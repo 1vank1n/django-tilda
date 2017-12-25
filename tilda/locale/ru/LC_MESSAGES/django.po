@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-25 18:57+0300\n"
+"POT-Creation-Date: 2017-12-25 23:35+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,74 +20,75 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: admin.py:33
+#: admin.py:34
 msgid "Pages successfuly fetched from Tilda"
 msgstr "Страницы успешно подгружены с Tila"
 
-#: admin.py:39
+#: admin.py:40
 msgid "Nothing fetched. Perharps wrong settings"
 msgstr "Ничего не загрузилось. Проверьте настройки в settings"
 
-#: admin.py:41
+#: admin.py:42
 msgid "Fetch pages"
 msgstr "Загрузить страницы"
 
-#: admin.py:48
+#: admin.py:49
 msgid "Page «{}» successfuly synced from Tilda"
 msgstr "Страница «{}» успешно загружена с Tilda"
 
-#: admin.py:54
+#: admin.py:55
 msgid "Something wrong..."
 msgstr "Что-то пошло не так..."
 
-#: admin.py:56
+#: admin.py:57
 msgid "Synchronize"
 msgstr "Синхронизировать"
 
-#: models.py:10
+#: models.py:11
 msgid "Page id"
 msgstr "ID страницы"
 
-#: models.py:17
+#: models.py:18
 msgid "Title"
 msgstr "Заголовок"
 
-#: models.py:22
+#: models.py:23
 msgid "HTML"
 msgstr ""
 
-#: models.py:27
+#: models.py:28
 msgid "Images"
 msgstr "Изображения"
 
-#: models.py:32
+#: models.py:33
 msgid "CSS"
 msgstr ""
 
-#: models.py:37
+#: models.py:38
 msgid "JS"
 msgstr ""
 
-#: models.py:42
+#: models.py:43
 msgid "Synchronized time"
 msgstr "Время синхронизиации"
 
-#: models.py:48
+#: models.py:49
 msgid "Created"
 msgstr "Дата создания"
 
-#: models.py:54
+#: models.py:55
 msgid "page"
 msgstr "страница"
 
-#: models.py:55
+#: models.py:56
 msgid "Tilda Pages"
 msgstr "Tilda Страницы"
 
 #: templates/tilda/widget.html:6
 msgid ""
 "Insert TILDA_PUBLIC_KEY, TILDA_SECRET_KEY, TILDA_PROJECTID in settings.py"
-msgstr "Добавьте TILDA_PUBLIC_KEY, TILDA_SECRET_KEY, TILDA_PROJECTID в settings.py"
+msgstr ""
+"Добавьте TILDA_PUBLIC_KEY, TILDA_SECRET_KEY, TILDA_PROJECTID в settings.py"
 
 #: templates/tilda/widget.html:17
 msgid "Fetch list of pages from tilda.cc"

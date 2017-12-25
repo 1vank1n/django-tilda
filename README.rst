@@ -10,7 +10,7 @@ Supported versions
 ------------------
 
 -  Django 1.10, 1.11 (other version yet not tested)
--  Python 3 (3.4, 3.5, 3.6)
+-  Python 2.7, 3 (3.4, 3.5, 3.6)
 
 Screenshots
 -----------

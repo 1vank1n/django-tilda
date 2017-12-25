@@ -1,3 +1,4 @@
+# coding: utf-8
 import os
 from django.db import models
 from django.conf import settings
@@ -7,52 +8,52 @@ from django.utils.translation import ugettext as _
 class TildaPage(models.Model):
 
     id = models.CharField(
-        _('Page id'),
+        _(u'Page id'),
         max_length=50,
         primary_key=True,
         unique=True
     )
 
     title = models.CharField(
-        _('Title'),
+        _(u'Title'),
         max_length=100
     )
 
     html = models.TextField(
-        _('HTML'),
+        _(u'HTML'),
         blank=True
     )
 
     images = models.TextField(
-        _('Images'),
+        _(u'Images'),
         blank=True
     )
 
     css = models.TextField(
-        _('CSS'),
+        _(u'CSS'),
         blank=True
     )
 
     js = models.TextField(
-        _('JS'),
+        _(u'JS'),
         blank=True
     )
 
     synchronized = models.DateTimeField(
-        _('Synchronized time'),
+        _(u'Synchronized time'),
         blank=True,
         null=True
     )
 
     created = models.DateTimeField(
-        _('Created'),
+        _(u'Created'),
         auto_now_add=True
     )
 
     class Meta:
         ordering = ('title', )
-        verbose_name = _('page')
-        verbose_name_plural = _('Tilda Pages')
+        verbose_name = _(u'page')
+        verbose_name_plural = _(u'Tilda Pages')
 
     def get_images_list(self):
         if self.images:

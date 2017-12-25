@@ -1,3 +1,4 @@
+# coding: utf-8
 from django.conf import settings
 from django.contrib import (admin, messages)
 from django_object_actions import DjangoObjectActions
@@ -30,30 +31,30 @@ class TildaPageAdmin(DjangoObjectActions, admin.ModelAdmin):
             messages.add_message(
                 request,
                 messages.SUCCESS,
-                _('Pages successfuly fetched from Tilda')
+                _(u'Pages successfuly fetched from Tilda')
             )
         else:
             messages.add_message(
                 request,
                 messages.ERROR,
-                _('Nothing fetched. Perharps wrong settings')
+                _(u'Nothing fetched. Perharps wrong settings')
             )
-    fetch_pages.label = _('Fetch pages')
+    fetch_pages.label = _(u'Fetch pages')
 
     def synchronize_page(self, request, obj):
         if api.api_getpageexport(obj.id):
             messages.add_message(
                 request,
                 messages.SUCCESS,
-                _('Page «{}» successfuly synced from Tilda'.format(obj.title))
+                _(u'Page «{}» successfuly synced from Tilda'.format(obj.title))
             )
         else:
             messages.add_message(
                 request,
                 messages.ERROR,
-                _('Something wrong...')
+                _(u'Something wrong...')
             )
-    synchronize_page.label = _('Synchronize')
+    synchronize_page.label = _(u'Synchronize')
 
     change_actions = ('synchronize_page', )
     changelist_actions = ('fetch_pages', )

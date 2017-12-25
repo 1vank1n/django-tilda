@@ -1,18 +1,17 @@
 Django Tilda
 ============
 
-`На русском <README.ru.rst>`
+`English readme <README.rst>`
 
-**Warning!** Before start you have to register in `tilda.cc`_ and have
-“Tilda Business” account for use Tilda API.
+**Внимание!** Перед тем как приступить к интеграции с `tilda.cc`_ убедитесь, что у Вас “Tilda Business” тариф. Только на нём доступно Tilda API.
 
-Supported versions
+Поддерживаемые версии
 ------------------
 
--  Django 1.10, 1.11 (other version yet not tested)
+-  Django 1.10, 1.11 (другие версии ещё не тестировались)
 -  Python 3 (3.4, 3.5, 3.6)
 
-Screenshots
+Скриншот
 -----------
 
 .. figure:: https://img-fotki.yandex.ru/get/518060/94968737.3/0_9cefa_18f3e324_orig
@@ -20,29 +19,27 @@ Screenshots
 
    Screenshot
 
-Quick-Start Guide
+Быстрый старт
 -----------------
 
-1. Install Django Tilda:
+1. Устанавливаем Django Tilda:
 
 ::
 
     pip install django-tilda
 
-2. Add to your ``INSTALLED_APPS``:
+2. Добавь в ``INSTALLED_APPS``:
 
 ::
 
     'django_object_actions',
     'tilda',
 
-3. Add in ``settings.py`` params:
+3. Также добавь в ``settings.py``:
 
-*TILDA_PUBLIC_KEY* and *TILDA_SECRET_KEY* generated in Business account
-Tilda.cc — https://tilda.cc/identity/apikeys/
+*TILDA_PUBLIC_KEY* и *TILDA_SECRET_KEY* генерируется на Tilda.cc — https://tilda.cc/identity/apikeys/
 
-*TILDA_PROJECTID* — you need to have exist project in Tilda.cc (look at
-your location bar when you work with project in Tilda panel)
+*TILDA_PROJECTID* — у Вас должен быть уже созданный проект на Tilda.cc (в адресной строке легко можно найти project_id)
 
 ::
 
@@ -53,17 +50,16 @@ your location bar when you work with project in Tilda panel)
     TILDA_MEDIA_JS = os.path.join(BASE_DIR, 'media/tilda/js')
     TILDA_MEDIA_CSS = os.path.join(BASE_DIR, 'media/tilda/css')
 
-4. *TILDA_MEDIA_IMAGES*, *TILDA_MEDIA_JS*, *TILDA_MEDIA_CSS* — create
-   this folders manually
+4. *TILDA_MEDIA_IMAGES*, *TILDA_MEDIA_JS*, *TILDA_MEDIA_CSS* — создайте эти папки самостоятельно (это важно!)
 
-5. Migrate ``python manage.py migrate``
+5. Запустить миграцию ``python manage.py migrate``
 
-Done!
+Готово!
 
-Usage
+Использование
 -----
 
-Simple example:
+Простой пример:
 
 **models.py**
 
@@ -89,7 +85,7 @@ Simple example:
             auto_now_add=True
         )
 
-**template** (``object`` — instance of Page class)
+**template** (``object`` — экземпляр Page class)
 
 .. code:: html
 

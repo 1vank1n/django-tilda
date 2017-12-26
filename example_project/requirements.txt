@@ -6,4 +6,4 @@ idna==2.6
 pytz==2017.3
 requests==2.18.4
 urllib3==1.22
-django-tilda==1.0.1
+django-tilda~=1

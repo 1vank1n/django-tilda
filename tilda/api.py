@@ -67,6 +67,9 @@ def api_getpageexport(page_id):
             for r in result['images']:
                 filename = os.path.join(settings.TILDA_MEDIA_IMAGES, r['to'])
                 download_file(r['from'], filename)
+                url = os.path.join(settings.TILDA_MEDIA_IMAGES_URL, r['to'])
+                page.html = page.html.replace(r['to'], url)
+            page.save()
 
             for r in result['css']:
                 filename = os.path.join(settings.TILDA_MEDIA_CSS, r['to'])

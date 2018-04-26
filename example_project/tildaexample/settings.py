@@ -134,6 +134,7 @@ MEDIA_URL = '/media/'
 TILDA_PUBLIC_KEY = ''
 TILDA_SECRET_KEY = ''
 TILDA_PROJECTID = ''
+TILDA_MEDIA_IMAGES_URL = '/media/tilda/images'
 TILDA_MEDIA_IMAGES = os.path.join(BASE_DIR, 'media/tilda/images')
 TILDA_MEDIA_JS = os.path.join(BASE_DIR, 'media/tilda/js')
 TILDA_MEDIA_CSS = os.path.join(BASE_DIR, 'media/tilda/css')

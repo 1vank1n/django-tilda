@@ -5,6 +5,8 @@ Django Tilda
 
 **Внимание!** Перед тем как приступить к интеграции с `tilda.cc`_ убедитесь, что у Вас “Tilda Business” тариф. Только на нём доступно Tilda API.
 
+Синхронизация возможна только для **опубликованных** страниц Проекта.
+
 Поддерживаемые версии
 ------------------
 
@@ -41,11 +43,14 @@ Django Tilda
 
 *TILDA_PROJECTID* — у Вас должен быть уже созданный проект на Tilda.cc (в адресной строке легко можно найти project_id)
 
+*TILDA_MEDIA_IMAGES_URL* — url до папки TILDA_MEDIA_IMAGES
+
 ::
 
     TILDA_PUBLIC_KEY = ''
     TILDA_SECRET_KEY = ''
     TILDA_PROJECTID = ''
+    TILDA_MEDIA_IMAGES_URL = '/media/tilda/images'
     TILDA_MEDIA_IMAGES = os.path.join(BASE_DIR, 'media/tilda/images')
     TILDA_MEDIA_JS = os.path.join(BASE_DIR, 'media/tilda/js')
     TILDA_MEDIA_CSS = os.path.join(BASE_DIR, 'media/tilda/css')

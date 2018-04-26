@@ -6,11 +6,13 @@ Django Tilda
 **Warning!** Before start you have to register in `tilda.cc`_ and have
 “Tilda Business” account for use Tilda API.
 
+Synchronization available only for **published** in Project pages.
+
 Supported versions
 ------------------
 
 -  Django 1.10, 1.11 (other version yet not tested)
--  Python 2.7, 3 (3.4, 3.5, 3.6)
+-  Python 2.7, >3.4
 
 Screenshots
 -----------
@@ -44,11 +46,14 @@ Tilda.cc — https://tilda.cc/identity/apikeys/
 *TILDA_PROJECTID* — you need to have exist project in Tilda.cc (look at
 your location bar when you work with project in Tilda panel)
 
+*TILDA_MEDIA_IMAGES_URL* — your url path for folder in TILDA_MEDIA_IMAGES
+
 ::
 
     TILDA_PUBLIC_KEY = ''
     TILDA_SECRET_KEY = ''
     TILDA_PROJECTID = ''
+    TILDA_MEDIA_IMAGES_URL = '/media/tilda/images'
     TILDA_MEDIA_IMAGES = os.path.join(BASE_DIR, 'media/tilda/images')
     TILDA_MEDIA_JS = os.path.join(BASE_DIR, 'media/tilda/js')
     TILDA_MEDIA_CSS = os.path.join(BASE_DIR, 'media/tilda/css')

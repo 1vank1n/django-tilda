@@ -10,7 +10,7 @@
 		<select type="text" name="{{ name }}" id="{{ attrs.id }}"/>
 			<option value="">---</option>
 			{% for q in queryset %}
-				<option value="{{ q.id }}" {% if value %}selected{% endif %}>{{ q.title }}</option>
+				<option value="{{ q.id }}" {% if q.id == value %}selected{% endif %}>{{ q.title }}</option>
 			{% endfor %}
 		</select>
 

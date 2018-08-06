@@ -3,7 +3,7 @@ import requests
 from django.conf import settings
 from django.utils.timezone import now
 
-from .helpers import download_file
+from .helpers import download_file, make_unique
 from . import models
 
 
@@ -64,18 +64,18 @@ def api_getpageexport(page_id):
             page.synchronized = now()
             page.save()
 
-            for r in result['images']:
+            for r in make_unique(result['images']):
                 filename = os.path.join(settings.TILDA_MEDIA_IMAGES, r['to'])
                 download_file(r['from'], filename)
                 url = os.path.join(settings.TILDA_MEDIA_IMAGES_URL, r['to'])
                 page.html = page.html.replace(r['to'], url)
             page.save()
 
-            for r in result['css']:
+            for r in make_unique(result['css']):
                 filename = os.path.join(settings.TILDA_MEDIA_CSS, r['to'])
                 download_file(r['from'], filename)
 
-            for r in result['js']:
+            for r in make_unique(result['js']):
                 filename = os.path.join(settings.TILDA_MEDIA_JS, r['to'])
                 download_file(r['from'], filename)
 

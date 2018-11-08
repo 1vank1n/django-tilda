@@ -4,6 +4,7 @@ Django==1.11.16
 django-object-actions==0.10.0
 idna==2.6
 pytz==2017.3
-requests==2.18.4
+requests==2.20.0
+requests-toolbelt==0.8.0
 urllib3==1.22
 django-tilda~=1

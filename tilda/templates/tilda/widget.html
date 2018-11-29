@@ -44,7 +44,7 @@
 				e.target.innerText = '{% trans "Syncing. Wait..." %}'
 
 				var request = new XMLHttpRequest();
-				request.open('GET', '/admin/tilda/tildapage/{{ obj.id }}/actions/synchronize_page/', true);
+				request.open('GET', "{% url 'admin:index' %}tilda/tildapage/{{ obj.id }}/actions/synchronize_page/", true);
 
 				request.onload = function() {
 					if (request.status >= 200 && request.status < 400) {
@@ -67,7 +67,7 @@
 			e.target.innerText = '{% trans "Downloading. Wait..." %}'
 
 			var request = new XMLHttpRequest();
-			request.open('GET', '/admin/tilda/tildapage/actions/fetch_pages/', true);
+			request.open('GET', "{% url 'admin:index' %}tilda/tildapage/actions/fetch_pages/", true);
 
 			request.onload = function() {
 				if (request.status >= 200 && request.status < 400) {

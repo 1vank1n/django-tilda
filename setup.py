@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='django-tilda',
-    version='1.0.8',
+    version='1.0.9',
     author='Ivan Lukyanets',
     author_email='lukyanets.ivan@gmail.com',
     url='https://github.com/1vank1n/django-tilda',
@@ -18,7 +18,7 @@ setup(
     long_description=open('README.rst').read(),
     install_requires=[
         'django-object-actions==0.10.0',
-        'requests==2.20.0',
+        'requests==2.21.0',
     ],
     classifiers=[
         'Development Status :: 4 - Beta',

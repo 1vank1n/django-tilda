@@ -1,10 +1,9 @@
 certifi==2017.11.5
 chardet==3.0.4
-Django==1.11.16
-django-object-actions==0.10.0
 idna==2.6
-pytz==2017.3
-requests==2.20.0
+pkginfo==1.4.1
+requests==2.21.0
 requests-toolbelt==0.8.0
-urllib3==1.22
-django-tilda~=1
+tqdm==4.19.5
+twine==1.9.1
+urllib3==1.24.1

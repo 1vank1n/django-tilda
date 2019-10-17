@@ -3,6 +3,11 @@ Django Tilda
 
 `English readme <README.rst>`_
 
+|Downloads|
+
+.. |Downloads| image:: https://pepy.tech/badge/django-tilda
+   :target: https://pepy.tech/project/django-tilda
+
 **Внимание!** Перед тем как приступить к интеграции с `tilda.cc`_ убедитесь, что у Вас “Tilda Business” тариф. Только на нём доступно Tilda API.
 
 Синхронизация возможна только для **опубликованных** страниц Проекта.

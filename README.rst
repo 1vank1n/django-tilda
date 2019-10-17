@@ -3,6 +3,11 @@ Django Tilda
 
 `На русском <README.ru.rst>`_
 
+|Downloads|
+
+.. |Downloads| image:: https://pepy.tech/badge/django-tilda
+   :target: https://pepy.tech/project/django-tilda
+
 **Warning!** Before start you have to register in `tilda.cc`_ and have
 “Tilda Business” account for use Tilda API.
 

@@ -22,10 +22,12 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
+    - name: Create sdist
+      run: python setup.py sdist
+
     - name: Publish package
       if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
       uses: pypa/gh-action-pypi-publish@master
-      run: python setup.py sdist
       with:
         user: __token__
         password: ${{ secrets.pypi_password }}

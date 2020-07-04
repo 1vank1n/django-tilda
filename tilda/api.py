@@ -18,7 +18,7 @@ def api_getpageslist():
     url = '{}/getpageslist'.format(API_HOST)
     payload = API_PAYLOAD.copy()
     payload['projectid'] = settings.TILDA_PROJECTID
-    req = requests.get(url, params=payload)
+    req = requests.get(url, params=payload, verify=False)
     if req.status_code == 200:
         res = req.json()
         if res['status'] == 'FOUND':
@@ -38,7 +38,7 @@ def api_getpageexport(page_id):
     page = models.TildaPage.objects.get(id=page_id)
     payload = API_PAYLOAD.copy()
     payload['pageid'] = page.id
-    req = requests.get(url, params=payload)
+    req = requests.get(url, params=payload, verify=False)
     if req.status_code == 200:
         res = req.json()
         if res['status'] == 'FOUND':

@@ -17,7 +17,7 @@ Supported versions
 ------------------
 
 -  Django >= 2.0 (old version supported >= 1.10)
--  Python 2.7, >3.4
+-  Python 2.7, >=3.5
 
 Screenshots
 -----------

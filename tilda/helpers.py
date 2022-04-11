@@ -2,7 +2,8 @@ import requests
 
 
 def download_file(url, filename):
-    r = requests.get(url, stream=True, verify=False)
+    headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:98.0) Gecko/20100101 Firefox/98.0'}
+    r = requests.get(url, stream=True, verify=False, headers=headers)
     with open(filename, 'wb') as fd:
         for chunk in r.iter_content(chunk_size=128):
             fd.write(chunk)

@@ -24,19 +24,22 @@ class TildaPage(models.Model):
         blank=True
     )
 
-    images = models.TextField(
+    images = models.JSONField(
         _(u'Images'),
-        blank=True
+        default=list,
+        blank=True,
     )
 
-    css = models.TextField(
+    css = models.JSONField(
         _(u'CSS'),
-        blank=True
+        default=list,
+        blank=True,
     )
 
-    js = models.TextField(
+    js = models.JSONField(
         _(u'JS'),
-        blank=True
+        default=list,
+        blank=True,
     )
 
     synchronized = models.DateTimeField(
@@ -59,7 +62,7 @@ class TildaPage(models.Model):
         if self.images:
             return [
                 os.path.join('/media/tilda/images', r['to'])
-                for r in eval(self.images)
+                for r in self.images
             ]
         return []
 
@@ -67,7 +70,7 @@ class TildaPage(models.Model):
         if self.css:
             return [
                 os.path.join('/media/tilda/css', r['to'])
-                for r in eval(self.css)
+                for r in self.css
             ]
         return []
 
@@ -75,7 +78,7 @@ class TildaPage(models.Model):
         if self.js:
             return [
                 os.path.join('/media/tilda/js', r['to'])
-                for r in eval(self.js)
+                for r in self.js
             ]
         return []
 
@@ -83,7 +86,7 @@ class TildaPage(models.Model):
         if self.images:
             return [
                 os.path.join(settings.TILDA_MEDIA_IMAGES, r['to'])
-                for r in eval(self.images)
+                for r in self.images
             ]
         return []
 
@@ -91,7 +94,7 @@ class TildaPage(models.Model):
         if self.css:
             return [
                 os.path.join(settings.TILDA_MEDIA_CSS, r['to'])
-                for r in eval(self.css)
+                for r in self.css
             ]
         return []
 
@@ -99,12 +102,9 @@ class TildaPage(models.Model):
         if self.js:
             return [
                 os.path.join(settings.TILDA_MEDIA_JS, r['to'])
-                for r in eval(self.js)
+                for r in self.js
             ]
         return []
-
-    def __unicode__(self):
-        return self.title
 
     def __str__(self):
         return self.title

@@ -18,7 +18,7 @@ setup(
     long_description=open('README.rst').read(),
     install_requires=[
         'django-object-actions==0.10.0',
-        'requests==2.32.2',
+        'requests==2.32.4',
     ],
     classifiers=[
         'Development Status :: 4 - Beta',

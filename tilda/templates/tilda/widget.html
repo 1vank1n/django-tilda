@@ -6,13 +6,13 @@
 		{% trans "Insert TILDA_PUBLIC_KEY, TILDA_SECRET_KEY, TILDA_PROJECTID in settings.py" %}
 	</div>
 {% else %}
-	<div>
-		<select type="text" name="{{ name }}" id="{{ attrs.id }}"/>
-			<option value="">---</option>
-			{% for q in queryset %}
-				<option value="{{ q.id }}" {% if q.id == value %}selected{% endif %}>{{ q.title }}</option>
-			{% endfor %}
-		</select>
+        <div>
+                <select name="{{ name }}" id="{{ attrs.id }}">
+                        <option value="">---</option>
+                        {% for q in queryset %}
+                                <option value="{{ q.id }}" {% if q.id == value %}selected{% endif %}>{{ q.title }}</option>
+                        {% endfor %}
+                </select>
 
 		<a style="margin-left:10px;" data-js="tildaPagesFetch" href="javascript:void(0);">{% trans "Fetch list of pages from tilda.cc" %}</a>
 	</div>

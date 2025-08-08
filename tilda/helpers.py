@@ -1,12 +1,24 @@
+import logging
 import requests
+
+logger = logging.getLogger(__name__)
+TIMEOUT = 10
 
 
 def download_file(url, filename):
-    headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:98.0) Gecko/20100101 Firefox/98.0'}
-    r = requests.get(url, stream=True, verify=False, headers=headers)
-    with open(filename, 'wb') as fd:
-        for chunk in r.iter_content(chunk_size=128):
-            fd.write(chunk)
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:98.0) Gecko/20100101 Firefox/98.0'
+    }
+    try:
+        with requests.get(url, stream=True, timeout=TIMEOUT, headers=headers) as r:
+            r.raise_for_status()
+            with open(filename, 'wb') as fd:
+                for chunk in r.iter_content(chunk_size=128):
+                    fd.write(chunk)
+        return True
+    except requests.RequestException as exc:
+        logger.error("Failed to download %s: %s", url, exc)
+        return False
 
 
 def make_unique(original_list):

@@ -5,7 +5,6 @@ name: CI
 on:
   push:
     branches: [main]
-    tags: ['*']
   pull_request:
     branches: [main]
 
@@ -26,13 +25,15 @@ jobs:
       - run: python example_project/manage.py test
 
   publish:
-    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Create sdist
-        run: python setup.py sdist
+      - run: python -m pip install --upgrade pip
+      - run: pip install build
+      - name: Build package
+        run: python -m build
       - name: Publish package
         uses: pypa/gh-action-pypi-publish@release/v1
         with:

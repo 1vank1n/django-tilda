@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-tilda"
+version = "2.0.0"
+description = "A Django app for fetch/download pages from API Tilda.cc"
+readme = "README.rst"
+license = {text = "MIT"}
+authors = [
+    {name = "Ivan Lukyanets", email = "lukyanets.ivan@gmail.com"},
+]
+keywords = ["django", "tilda"]
+requires-python = ">=3.9"
+dependencies = [
+    "Django>=4.2",
+    "django-object-actions>=4.0",
+    "requests>=2.31",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Framework :: Django",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+    "Framework :: Django :: 5.1",
+    "Framework :: Django :: 5.2",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+[project.urls]
+Homepage = "https://github.com/1vank1n/django-tilda"
+Repository = "https://github.com/1vank1n/django-tilda"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["tilda*"]

@@ -16,8 +16,10 @@ Synchronization available only for **published** in Project pages.
 Supported versions
 ------------------
 
--  Django >= 2.0 (old version supported >= 1.10)
--  Python 2.7, >=3.5
+-  Django >= 4.2
+-  Python >= 3.9
+
+Older Django/Python? Use ``django-tilda<2.0``.
 
 Screenshots
 -----------
@@ -63,12 +65,27 @@ your location bar when you work with project in Tilda panel)
     TILDA_MEDIA_JS = os.path.join(BASE_DIR, 'media/tilda/js')
     TILDA_MEDIA_CSS = os.path.join(BASE_DIR, 'media/tilda/css')
 
+Optional settings:
+
+::
+
+    TILDA_TIMEOUT = 10  # Tilda API request timeout, seconds
+    TILDA_MEDIA_CSS_URL = '/media/tilda/css'
+    TILDA_MEDIA_JS_URL = '/media/tilda/js'
+
 4. *TILDA_MEDIA_IMAGES*, *TILDA_MEDIA_JS*, *TILDA_MEDIA_CSS* — create
    this folders manually
 
 5. Migrate ``python manage.py migrate``
 
 Done!
+
+Upgrading from 1.x
+------------------
+
+Version 2.0 requires Django >= 4.2 / Python >= 3.9 and stores page assets
+in ``JSONField``. Run ``python manage.py migrate tilda`` — existing data
+is converted automatically.
 
 Usage
 -----

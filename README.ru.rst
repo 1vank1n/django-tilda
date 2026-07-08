@@ -15,8 +15,10 @@ Django Tilda
 Поддерживаемые версии
 ------------------
 
--  Django >= 2.0 (поддерживаются старые версии >= 1.10)
--  Python 2.7, >= 3.5
+-  Django >= 4.2
+-  Python >= 3.9
+
+Для старых Django/Python используйте ``django-tilda<2.0``.
 
 Скриншот
 -----------
@@ -60,11 +62,26 @@ Django Tilda
     TILDA_MEDIA_JS = os.path.join(BASE_DIR, 'media/tilda/js')
     TILDA_MEDIA_CSS = os.path.join(BASE_DIR, 'media/tilda/css')
 
+Необязательные настройки:
+
+::
+
+    TILDA_TIMEOUT = 10  # таймаут запросов к Tilda API, секунды
+    TILDA_MEDIA_CSS_URL = '/media/tilda/css'
+    TILDA_MEDIA_JS_URL = '/media/tilda/js'
+
 4. *TILDA_MEDIA_IMAGES*, *TILDA_MEDIA_JS*, *TILDA_MEDIA_CSS* — создайте эти папки самостоятельно (это важно!)
 
 5. Запустить миграцию ``python manage.py migrate``
 
 Готово!
+
+Обновление с 1.x
+----------------
+
+Версия 2.0 требует Django >= 4.2 / Python >= 3.9 и хранит ресурсы страниц
+в ``JSONField``. Выполните ``python manage.py migrate tilda`` — существующие
+данные будут сконвертированы автоматически.
 
 Использование
 -----

@@ -1,5 +1,4 @@
-include setup.py README.* MANIFEST.in LICENSE
+include README.* LICENSE
 recursive-include tilda/locale *
-recursive-include tilda/migrations *
 recursive-include tilda/templates *
 global-exclude *.pyc

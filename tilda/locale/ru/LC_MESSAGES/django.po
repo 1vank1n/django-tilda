@@ -20,21 +20,22 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: admin.py:34
-msgid "Pages successfuly fetched from Tilda"
-msgstr "Страницы успешно подгружены с Tila"
+#: admin.py:31
+msgid "Pages successfully fetched from Tilda"
+msgstr "Страницы успешно подгружены с Tilda"
 
-#: admin.py:40
-msgid "Nothing fetched. Perharps wrong settings"
+#: admin.py:37
+msgid "Nothing fetched. Perhaps wrong settings"
 msgstr "Ничего не загрузилось. Проверьте настройки в settings"
 
-#: admin.py:42
+#: admin.py:40
 msgid "Fetch pages"
 msgstr "Загрузить страницы"
 
-#: admin.py:49
-msgid "Page «{}» successfuly synced from Tilda"
-msgstr "Страница «{}» успешно загружена с Tilda"
+#: admin.py:47
+#, python-format
+msgid "Page «%(title)s» successfully synced from Tilda"
+msgstr "Страница «%(title)s» успешно загружена с Tilda"
 
 #: admin.py:55
 msgid "Something wrong..."
@@ -70,7 +71,7 @@ msgstr ""
 
 #: models.py:43
 msgid "Synchronized time"
-msgstr "Время синхронизиации"
+msgstr "Время синхронизации"
 
 #: models.py:49
 msgid "Created"

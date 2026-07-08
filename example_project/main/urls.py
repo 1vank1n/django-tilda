@@ -1,12 +1,9 @@
-from django.conf.urls import url
+from django.urls import path
 from . import views
 
-urlpatterns = [
-    url(r'^$',
-        views.IndexView.as_view(),
-        name='index'),
+app_name = 'main'
 
-    url(r'^(?P<pk>[-\w]+)/$',
-        views.PageDetailView.as_view(),
-        name='page_detail'),
+urlpatterns = [
+    path('', views.IndexView.as_view(), name='index'),
+    path('<int:pk>/', views.PageDetailView.as_view(), name='page_detail'),
 ]

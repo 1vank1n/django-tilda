@@ -1,37 +1,44 @@
 from django import forms
+from django.apps import apps
 from django.conf import settings
 from django.db import models
 from django.template.loader import render_to_string
-from django.apps import apps
 
 
 class TildaWidget(forms.Widget):
 
-    def render(self, name, value, attrs=None):
-        is_required = self.is_required
+    def render(self, name, value, attrs=None, renderer=None):
+        attrs = dict(attrs or {})
+        attrs.setdefault('id', 'id_{}'.format(name))
 
-        if not hasattr(settings, 'TILDA_PUBLIC_KEY') or \
-           not hasattr(settings, 'TILDA_SECRET_KEY') or \
-           not hasattr(settings, 'TILDA_PROJECTID') or \
-           not settings.TILDA_PUBLIC_KEY or \
-           not settings.TILDA_SECRET_KEY or \
-           not settings.TILDA_PROJECTID:
-            is_need_config = True
+        is_need_config = any(
+            not getattr(settings, key, None)
+            for key in ('TILDA_PUBLIC_KEY', 'TILDA_SECRET_KEY', 'TILDA_PROJECTID')
+        )
 
         TildaPage = apps.get_model('tilda', 'TildaPage')
         queryset = TildaPage.objects.all()
+        obj = queryset.filter(id=value).first() if value else None
 
-        if queryset and value:
-            obj = queryset.filter(id=value)[0]
-        return render_to_string('tilda/widget.html', locals())
+        context = {
+            'name': name,
+            'value': value,
+            'attrs': attrs,
+            'is_required': self.is_required,
+            'is_need_config': is_need_config,
+            'queryset': queryset,
+            'obj': obj,
+        }
+        return render_to_string('tilda/widget.html', context)
 
 
 class TildaPageField(models.ForeignKey):
 
     def __init__(self, *args, **kwargs):
         kwargs['to'] = 'tilda.TildaPage'
-        super(TildaPageField, self).__init__(*args, **kwargs)
+        kwargs.setdefault('on_delete', models.CASCADE)
+        super().__init__(*args, **kwargs)
 
     def formfield(self, **kwargs):
         kwargs['widget'] = TildaWidget
-        return super(TildaPageField, self).formfield(**kwargs)
+        return super().formfield(**kwargs)

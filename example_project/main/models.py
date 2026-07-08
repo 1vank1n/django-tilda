@@ -1,21 +1,21 @@
 from django.db import models
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from tilda import TildaPageField
 
 
 class Page(models.Model):
 
     title = models.CharField(
-        u'Title',
+        'Title',
         max_length=100
     )
 
     tilda_content = TildaPageField(
-        verbose_name=u'Tilda Page'
+        verbose_name='Tilda Page'
     )
 
     created = models.DateTimeField(
-        u'Created',
+        'Created',
         auto_now_add=True
     )
 

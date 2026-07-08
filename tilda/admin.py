@@ -1,8 +1,6 @@
-# coding: utf-8
-from django.conf import settings
-from django.contrib import (admin, messages)
+from django.contrib import admin, messages
+from django.utils.translation import gettext, gettext_lazy as _
 from django_object_actions import DjangoObjectActions
-from django.utils.translation import ugettext as _
 
 from . import api
 from . import models
@@ -26,37 +24,39 @@ class TildaPageAdmin(DjangoObjectActions, admin.ModelAdmin):
     def has_add_permission(self, request):
         return False
 
-    def fetch_pages(modeladmin, request, queryset):
+    def fetch_pages(self, request, queryset):
         if api.api_getpageslist():
             messages.add_message(
                 request,
                 messages.SUCCESS,
-                _(u'Pages successfuly fetched from Tilda')
+                gettext('Pages successfully fetched from Tilda')
             )
         else:
             messages.add_message(
                 request,
                 messages.ERROR,
-                _(u'Nothing fetched. Perharps wrong settings')
+                gettext('Nothing fetched. Perhaps wrong settings')
             )
-    fetch_pages.label = _(u'Fetch pages')
+    fetch_pages.label = _('Fetch pages')
 
     def synchronize_page(self, request, obj):
         if api.api_getpageexport(obj.id):
             messages.add_message(
                 request,
                 messages.SUCCESS,
-                _(u'Page «{}» successfuly synced from Tilda'.format(obj.title))
+                gettext('Page «%(title)s» successfully synced from Tilda')
+                % {'title': obj.title}
             )
         else:
             messages.add_message(
                 request,
                 messages.ERROR,
-                _(u'Something wrong...')
+                gettext('Something wrong...')
             )
-    synchronize_page.label = _(u'Synchronize')
+    synchronize_page.label = _('Synchronize')
 
     change_actions = ('synchronize_page', )
     changelist_actions = ('fetch_pages', )
+
 
 admin.site.register(models.TildaPage, TildaPageAdmin)
